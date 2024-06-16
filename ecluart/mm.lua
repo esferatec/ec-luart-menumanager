@@ -1,5 +1,5 @@
 -- Defines a menu management module.
-local mm = {} -- version 1.0
+local mm = {} -- version 1.1
 
 -- Checks if the parameter is a valid child widget.
 -- isValidChild(parameter: any) -> boolean
@@ -21,12 +21,6 @@ end
 -- isString(parameter: any) -> boolean
 local function isString(parameter)
   return type(parameter) == "string"
-end
-
--- Checks if the parameter is a nil type.
--- isNil(parameter: any) -> boolean
-local function isNil(parameter)
-  return type(parameter) == "nil"
 end
 
 -- Defines the menu manager object.
@@ -51,7 +45,7 @@ end
 -- change(key: string, value: any) -> none
 function MenuManager:uncheck()
   for child in each(self.children) do
-    if not isNil(child.checked) then
+    if not child.checked then
       child.checked = false
     end
   end
@@ -61,7 +55,7 @@ end
 -- disable() -> none
 function MenuManager:disable()
   for child in each(self.children) do
-    if not isNil(child.enabled) then
+    if child.enabled then
       child.enabled = false
     end
   end
@@ -71,7 +65,7 @@ end
 -- enable() -> none
 function MenuManager:enable()
   for child in each(self.children) do
-    if not isNil(child.enabled) then
+    if not child.enabled then
       child.enabled = true
     end
   end
