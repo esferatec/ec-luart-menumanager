@@ -23,6 +23,12 @@ local function isString(parameter)
   return type(parameter) == "string"
 end
 
+-- Checks if the parameter is a nil type.
+-- isNil(parameter: any) -> boolean
+local function isNil(parameter)
+  return type(parameter) == "nil"
+end
+
 -- Defines the menu manager object.
 local MenuManager = Object({})
 
@@ -45,7 +51,7 @@ end
 -- change(key: string, value: any) -> none
 function MenuManager:uncheck()
   for child in each(self.children) do
-    if not child.checked then
+    if not isNil(child.checked) then
       child.checked = false
     end
   end
@@ -55,7 +61,7 @@ end
 -- disable() -> none
 function MenuManager:disable()
   for child in each(self.children) do
-    if child.enabled then
+    if not isNil(child.enabled) then
       child.enabled = false
     end
   end
@@ -65,7 +71,7 @@ end
 -- enable() -> none
 function MenuManager:enable()
   for child in each(self.children) do
-    if not child.enabled then
+    if not isNil(child.enabled) then
       child.enabled = true
     end
   end
