@@ -1,8 +1,8 @@
-# ec-luart-MenuManager
+# ec-luart-menumanager
 
 The project is a menu management module written in Lua. It defines a MenuManager object that contains methods for managing menus in LuaRT desktop applications.
 
-[![LuaRT 1.8.0](https://badgen.net/badge/LuaRT/1.8.0/blue)](https://github.com/samyeyo/LuaRT)
+[![LuaRT 1.9.5](https://badgen.net/badge/LuaRT/1.9.5/blue)](https://github.com/samyeyo/LuaRT)
 
 ## Features
 
