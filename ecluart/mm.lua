@@ -1,10 +1,9 @@
 -- Defines a menu management module.
-local mm = {} -- version 2025.04
+local mm = {} -- version 2025.11
 
 -- Checks if the parameter is a valid child widget.
 -- isValidChild(parameter: any) -> boolean
 local function isValidChild(parameter)
-  local childType = type(parameter)
   local invalidTypes = {
     "nil",
     "boolean",
@@ -19,13 +18,13 @@ end
 
 -- Checks if the parameter is a string type.
 -- isString(parameter: any) -> boolean
-local function isString(parameter)
+local function isStringType(parameter)
   return type(parameter) == "string"
 end
 
 -- Checks if the parameter is a nil type.
 -- isNil(parameter: any) -> boolean
-local function isNil(parameter)
+local function isNilType(parameter)
   return type(parameter) == "nil"
 end
 
@@ -37,11 +36,11 @@ function MenuManager:constructor()
   self.children = {}
 end
 
--- Adds a menu object.
+-- Adds a menu object and name.
 -- add(menu: object, name: string) -> none
 function MenuManager:add(menu, name)
   if not isValidChild(menu) then return end
-  if not isString(name) then return end
+  if not isStringType(name) then return end
   if name == "" then return end
 
   self.children[name] = menu
@@ -51,27 +50,27 @@ end
 -- change(key: string, value: any) -> none
 function MenuManager:uncheck()
   for child in each(self.children) do
-    if not isNil(child.checked) then
+    if not isNilType(child.checked) then
       child.checked = false
     end
   end
 end
 
--- Disables all child widgets.
+-- Disables all child menus.
 -- disable() -> none
 function MenuManager:disable()
   for child in each(self.children) do
-    if not isNil(child.enabled) then
+    if not isNilType(child.enabled) then
       child.enabled = false
     end
   end
 end
 
--- Enables all child widgets.
+-- Enables all child menus.
 -- enable() -> none
 function MenuManager:enable()
   for child in each(self.children) do
-    if not isNil(child.enabled) then
+    if not isNilType(child.enabled) then
       child.enabled = true
     end
   end

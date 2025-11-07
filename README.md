@@ -38,7 +38,7 @@ local mm = require("ecluart.mm")
 MenuManager() -> object
 ```
 
-The code above initializes a new instance of the menu manager object. It returns the newly created object.
+Initializes a new menu manager instance.
 
 ## Method - add
 
@@ -46,7 +46,7 @@ The code above initializes a new instance of the menu manager object. It returns
 MenuManager:add(menu: object, name: string) -> none
 ```
 
-This function adds a menu to the MenuManager object. It takes an object menu and a string name as parameters. It first checks if the menu is a valid child menu using the isValidChild function. If it is not a valid child menu or the name is not a string, the function returns early. Otherwise, it adds the menu to the children table using the name as the key.
+Adds a menu object and name.
 
 ## Method - uncheck
 
@@ -54,7 +54,7 @@ This function adds a menu to the MenuManager object. It takes an object menu and
 MenuManager:uncheck() -> none
 ```
 
-The method iterates through child menus and unchecks them if they were previously checked. The function structure includes a loop to iterate over each child menu and a conditional check to determine if the menu is checked.
+ Unchecks all child menus.
 
 ## Method - disable
 
@@ -62,7 +62,7 @@ The method iterates through child menus and unchecks them if they were previousl
 MenuManager:disable() -> none
 ```
 
-This method is responsible for disabling all child menus. It achieves this by iterating over each child menu and setting its enabled property to false.
+Disables all child menus.
 
 ## Method - enable
 
@@ -70,7 +70,7 @@ This method is responsible for disabling all child menus. It achieves this by it
 MenuManager:enable() -> none
 ```
 
-This method, on the other hand, enables all child menus. It follows a similar approach as the disable method, but instead sets the enabled property to true.
+Enables all child menus.
 
 ## License
 
